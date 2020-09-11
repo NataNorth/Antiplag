@@ -1,0 +1,18 @@
+$base-margin: 300px;
+$base-width: calc(100% - #{$base-margin * 2});
+$base-height: 85%;
+
+.text {
+    font-size: 25px;
+    margin: 0 15px 15px 15px;
+}
+
+.textArea {
+    min-height: 200px !important;
+    resize: vertical;
+    max-height: 400px !important;
+}
+
+.button {
+    margin: 15px !important;
+}

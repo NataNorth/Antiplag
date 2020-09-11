@@ -1,0 +1,15 @@
+$base-margin: 300px;
+$base-width: calc(100% - #{$base-margin * 2});
+
+.text {
+    font-size: 24px;
+    margin: 0 15px 15px 15px;
+}
+
+.textArea {
+    min-height: 200px !important;
+}
+
+.button {
+    margin: 15px !important;
+}

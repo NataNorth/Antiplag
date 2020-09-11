@@ -1,0 +1,22 @@
+$base-margin: 300px;
+$base-width: calc(100% - #{$base-margin * 2});
+
+.uiContainer {
+    padding: 30px;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    height: 85%;
+    width: $base-width;
+    right: $base-margin;
+    top: 80px;
+    background-color: #f3e6e3;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    border-radius: 5px;
+    overflow-y: scroll;
+}
+
+.text {
+    font-size: 24px;
+    margin: 0 15px 15px 15px;
+}

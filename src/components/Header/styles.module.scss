@@ -1,0 +1,21 @@
+.headerContainer {
+    position: fixed;
+    top: 0;
+    display: flex;
+    height: 70px;
+    width: 100%;
+    background-color: #776d8a;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    align-items: center;
+    z-index: 100;
+}
+
+.titleContainer {
+    font-size: 30px;
+    color: white;
+    width: 200px;
+    display: flex;
+    justify-content: center;
+    font-weight: 700;
+    cursor: pointer;
+}
