@@ -1,18 +1,17 @@
 import React, { useState } from 'react';
 import { Form, TextArea, Button } from 'semantic-ui-react';
 import styles from './styles.module.scss';
-import {IState} from '../../reducers'
-import { connect, ConnectedProps } from 'react-redux';
-import { CheckPlagRoutine } from '../../sagas/routines';
 import UIContainer from '../UIContainer';
 import { history } from './../..//history';
 
-const UploadPage: React.FC<IUploadPageProps> = ({checkPlag}) => {
+const UploadPage: React.FC = () => {
     const [text, setText] = useState<string | undefined | number>('');
     const [textId, setTextId] = useState('');
     const [answer, setAnswer] = useState<number | undefined>(undefined);
     const handleSubmit = () => {
-        check();
+        if (text) {
+            check();
+        }
     };
 
     const handleClick = () => {
@@ -32,7 +31,7 @@ const UploadPage: React.FC<IUploadPageProps> = ({checkPlag}) => {
     return (
         <UIContainer text="Enter your text below to check for plagiarism.">
             <Form>
-                <TextArea placeholder='Enter text' 
+                <TextArea placeholder='Enter text' required
                 className={styles.textArea}
                 onChange={(e, data)=>setText(data.value)}/>
                 <Button className={styles.button}
@@ -50,17 +49,4 @@ const UploadPage: React.FC<IUploadPageProps> = ({checkPlag}) => {
     );
 };
 
-const mapStateToProps = (state: IState) => ({
-    isLoading: state.isLoading,
-    text: state.text
-});
-
-const mapDispatchToProps = {
-    checkPlag: CheckPlagRoutine
-};
-
-const connector = connect(mapStateToProps, mapDispatchToProps);
-
-type IUploadPageProps = ConnectedProps<typeof connector>;
-
-export default connector(UploadPage);
+export default UploadPage;
