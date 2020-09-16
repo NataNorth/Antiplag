@@ -2,6 +2,7 @@ $base-margin: 300px;
 $base-width: calc(100% - #{$base-margin * 2});
 
 .textArea {
+    margin-top: 15px !important;
     min-height: 200px !important;
 }
 

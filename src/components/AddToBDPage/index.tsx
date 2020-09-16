@@ -1,20 +1,22 @@
 import React, { useState } from 'react';
-import { Form, TextArea, Button } from 'semantic-ui-react';
+import { Form, TextArea, Button, Input, Message } from 'semantic-ui-react';
 import styles from './styles.module.scss';
 import {toastr} from 'react-redux-toastr';
 import UIContainer from '../UIContainer';
 import { history } from './../..//history';
 
-interface IAddPage {
-
-}
-
-const AddPage: React.FC<IAddPage> = () => {
+const AddPage: React.FC = () => {
     const [text, setText] = useState<string | undefined | number>('');
+    const [title, setTitle] = useState('');
+    const [error, setError] = useState('');
 
     const handleAdd = () => {
-        add();
-        history.push("/");
+        if (text && title) {
+            add();
+            history.push("/");
+        } else {
+            setError("Enter all fields")
+        }
     };
 
     async function add() {
@@ -23,10 +25,9 @@ const AddPage: React.FC<IAddPage> = () => {
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify({text: text})
+            body: JSON.stringify({title: title, text: text})
         }).then(res => {return res.json()})
         if(response.Result === 'Success') {
-            console.log(response.text);
             toastr.success("Success", "Text was successfully downloaded to database");
         } else {
             toastr.warning("Error", "Something went wront. Try again");
@@ -36,9 +37,12 @@ const AddPage: React.FC<IAddPage> = () => {
     return (
         <UIContainer text="Enter text you want to add to database.">
             <Form>
-                <TextArea placeholder='Enter text' 
+                <Input fluid placeholder='Enter title' required
+                onChange={(e, data)=>setTitle(data.value)}/>
+                <TextArea placeholder='Enter text' required
                 className={styles.textArea}
                 onChange={(e, data)=>setText(data.value)}/>
+                {error ? <Message color='red'>{error}</Message> : null}
                 <Button className={styles.button} type="submit"
                 onClick={()=> handleAdd()}>Add</Button>
             </Form>
