@@ -54,14 +54,14 @@ const ExpandedTextPage: React.FC<IExpandedTextPageProps> = ({match}) => {
       >
         <Modal.Header>Delete This Text</Modal.Header>
         <Modal.Content>
-          <p>Are you sure you want to delete this text? This action can`t be reverted.</p>
+          <p>Are you sure you want to delete this text? This action can't be reverted.</p>
         </Modal.Content>
         <Modal.Actions>
-          <Button className={styles.negativeButton} onClick={() => setOpenModal(false)}>
-            No
-          </Button>
-          <Button className={styles.positiveButton} onClick={() => handleDelete()}>
+          <Button className={styles.negativeButton} onClick={() => handleDelete()}>
             Yes
+          </Button>
+          <Button className={styles.positiveButton} onClick={() => setOpenModal(false)}>
+            No
           </Button>
         </Modal.Actions>
         </Modal>
