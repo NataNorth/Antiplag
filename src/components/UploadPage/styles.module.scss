@@ -5,6 +5,7 @@ $base-height: 85%;
 .text {
     font-size: 25px;
     margin: 0 15px 15px 15px;
+    line-height: 25px;
 }
 
 .textArea {
@@ -15,4 +16,13 @@ $base-height: 85%;
 
 .button {
     margin: 15px !important;
+}
+
+.link {
+    box-shadow: none;
+    cursor: pointer;
+    text-decoration: underline;
+}
+.link:hover {
+    color: grey;
 }
