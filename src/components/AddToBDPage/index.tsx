@@ -26,6 +26,7 @@ const AddPage: React.FC<IAddPage> = () => {
             body: JSON.stringify({text: text})
         }).then(res => {return res.json()})
         if(response.Result === 'Success') {
+            console.log(response.text);
             toastr.success("Success", "Text was successfully downloaded to database");
         } else {
             toastr.warning("Error", "Something went wront. Try again");
@@ -38,7 +39,7 @@ const AddPage: React.FC<IAddPage> = () => {
                 <TextArea placeholder='Enter text' 
                 className={styles.textArea}
                 onChange={(e, data)=>setText(data.value)}/>
-                <Button className={styles.button}
+                <Button className={styles.button} type="submit"
                 onClick={()=> handleAdd()}>Add</Button>
             </Form>
         </UIContainer>

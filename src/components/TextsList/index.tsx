@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import styles from './styles.module.scss';
 import { Loader, Card } from 'semantic-ui-react';
 import UIContainer from '../UIContainer';
 import { history } from './../..//history';
@@ -24,7 +23,6 @@ const TextListPage: React.FC = () => {
             method: 'get'
         }).then(res => {return res.json()})
         setList(response.Result);
-        console.log(response.Result);
         setIsLoading(false);
     }
 
